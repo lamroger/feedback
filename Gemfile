@@ -75,3 +75,7 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+gem "ruby-openai", "~> 5.1"
+
+gem "dotenv-rails", "~> 2.8"

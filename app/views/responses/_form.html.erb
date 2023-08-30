@@ -30,3 +30,16 @@
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
+
+<p>
+  Try anonymising your message:
+</p>
+
+<%= form_with url: sanitize_message_new_response_path, remote: true, data: { turbo_frame: "response_text" } do |form|%>
+  <%= form.text_area :message, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <%= form.submit "Sanitize Message", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"  %>
+<% end %>
+
+<%= turbo_frame_tag "response_text" do %>
+  <%= render 'response_text', message: nil %>
+<% end %>

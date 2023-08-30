@@ -57,6 +57,14 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def sanitize_message
+    puts params
+    message = params[:message]
+    anon_message = helpers.anonomize(message)
+
+    render turbo_stream: turbo_stream.replace("response_text", partial: "response_text", locals: { message: anon_message })
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_response
