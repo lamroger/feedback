@@ -9,7 +9,7 @@ module ResponsesHelper
     style and grammar.
   """
 
-  def anonomize(text)
+  def anonymize(text)
     client = OpenAI::Client.new
 
     response = client.chat(

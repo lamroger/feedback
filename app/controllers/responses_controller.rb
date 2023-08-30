@@ -60,7 +60,7 @@ class ResponsesController < ApplicationController
   def sanitize_message
     puts params
     message = params[:message]
-    anon_message = helpers.anonomize(message)
+    anon_message = helpers.anonymize(message)
 
     render turbo_stream: turbo_stream.replace("response_text", partial: "response_text", locals: { message: anon_message })
   end
