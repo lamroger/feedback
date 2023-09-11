@@ -1,4 +1,4 @@
-<div data-controller="responses">
+<div data-controller="responses" data-responses-waffie-ai-endpoint-value=<%= ENV.fetch("WAFFIE_AI_ENDPOINT")%> data-responses-waffie-ai-client-token-value=<%= ENV.fetch("WAFFIE_AI_CLIENT_TOKEN")%>>
   <%= form_with(model: response, class: "contents") do |form| %>
     <% if response.errors.any? %>
       <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
@@ -29,7 +29,7 @@
   </p>
 
   <%= form_with url: sanitize_message_new_response_path, remote: true, data: { turbo_frame: "response_text" } do |form|%>
-    <%= form.text_area :message, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :message, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", data: {'responses-target':"input"} %>
     <div class="my-5">
       <%= form.submit "Sanitize Message", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer"  %>
     </div>

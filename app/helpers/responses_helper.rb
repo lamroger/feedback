@@ -1,7 +1,7 @@
 module ResponsesHelper
   PROMPT = <<-PROMPT
       You will be presented with user-generated feedback delimited by triple quotes.
-      Sanitize and anoymonize the feedback.
+      Sanitize and anonymize the feedback.
       Replace names, locations, and other identifying information with generic names and locations.
       Remove any identifying information that you think is not necessary for the feedback to be useful.
       Format it with standardized writing style and grammar.
