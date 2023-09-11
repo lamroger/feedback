@@ -1,5 +1,9 @@
 <div id="response_text">
   <% if message.present? %>
-    <p>Anonymised message: <%= message %></p>
+    <p>Anonymised message:</p>
+    <div data-responses-target="result" ><%= message %></div>
+    <div class="my-5">
+      <button class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" data-action="click->responses#replaceMessage">Replace original message</button>
+    </div>
   <% end %>
 </div>

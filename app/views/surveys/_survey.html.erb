@@ -1,17 +1,16 @@
 <div id="<%= dom_id survey %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= survey.user_id %>
+    <strong class="block font-medium mb-1">Public URL:</strong>
+    <%= link_to "#{request.base_url}/r/#{survey.public_id}", public_response_path(public_id: survey.public_id) %>
   </p>
-
   <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>
     <%= survey.description %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this survey", survey, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this survey', edit_survey_path(survey), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show", survey, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit', edit_survey_path(survey), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
