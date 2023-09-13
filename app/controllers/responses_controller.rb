@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: %i[public_response create]
+  skip_before_action :authenticate_user!, only: %i[public_response create sanitize_message]
 
   # GET /responses or /responses.json
   def index
